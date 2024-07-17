@@ -1,0 +1,16 @@
+* {
+    font-family: "Comic Sans MS";
+}
+
+th {
+    background-color: floralwhite;
+}
+
+li {
+    color: #0088dd
+}
+
+#ect_input {
+    visibility: hidden;
+}
+

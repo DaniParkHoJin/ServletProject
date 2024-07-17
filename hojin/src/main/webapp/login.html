@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link href="./css/login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src = "./javascript/login.js"></script>
+
+
+</head>
+
+<body>
+    <fieldset>
+        <h2>로그인</h2>
+        <form name=frmLogin method="post" action="login">
+            <table>
+                <tr>
+                    <td class="lable"><label for="id">아이디</label></td>
+                    <td colspan="4"><input class="input" type="text" name="id" id="id" placeholder="최소 6자~최대 12자"
+                            autofocus="autofocus" /></td>
+                </tr>
+                <tr>
+                    <td class="lable"><label for="password">비밀번호</label></td>
+                    <td colspan="4"><input class="input" type="password" name="password" id="password"
+                            placeholder="영문, 특수문자, 숫자 혼합 8~12자" /></td>
+                </tr>
+                <tr>
+                    <td colspan="5" ><input class="loginbutton"type="submit" value="로그인" /></td>
+                </tr>
+                <tr>
+                    <td class="under"><input type="checkbox" name="logincheck" value="logincheck" />아이디 저장</td>
+                    <td class="under"></td>
+                    <td class="under"><a href="아이디 찾기" target="아이디 찾기" >아이디 찾기</a></td>
+                    <td class="under"><a href="비밀번호 찾기" target="비밀번호 찾기" >비밀번호 찾기</a></td>
+                    <td class="under"><a href="join.html" target="_self" >회원가입</a></td>
+                </tr>
+            </table>
+
+
+        </form>
+    </fieldset>
+</body>
+
+</html>
