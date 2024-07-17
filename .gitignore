@@ -36,3 +36,5 @@ yarn-error.log*
 .classpath
 .project
 .settings/
+/Servers/
+/eclipse/
