@@ -1,4 +1,4 @@
-package join;
+package com.join;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -39,24 +39,47 @@ public class JoinServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String name = request.getParameter("name_name");
-		String birthday = request.getParameter("birthday");
-		String id = request.getParameter("name_userid");
-		String password = request.getParameter("name_password");
-		String email = request.getParameter("name_email");
-		String tel = request.getParameter("name_tel1") + request.getParameter("name_tel2")
-				+ request.getParameter("name_tel3");
-		String phone = request.getParameter("name_phone1") + request.getParameter("name_phone2") + request.getParameter("name_phone3");
-		String zipcode = request.getParameter("name_zipcode");
-		String address = request.getParameter("name_address1") + request.getParameter("name_address2") + request.getParameter("name_address3");
-		String job = request.getParameter("name_job");
-		String pathway = request.getParameter("pathway");
+
+		String name;
+		String birthday;
+		String id;
+		String password;
+		String email;
+		String emailagree;
+		String tel;
+		String phone;
+		String zipcode;
+		String address;
+		String job;
+		String pathway;
+
+		name = request.getParameter("name_name");
+		birthday = request.getParameter("birthday");
+		id = request.getParameter("name_userid");
+		password = request.getParameter("name_password");
+		email = request.getParameter("name_email");
 		
+		if ("checked".equals(request.getParameter("emailagree"))) {
+			emailagree = "emailOk";
+		} else {
+			emailagree ="emailNo";
+		}
+		
+		tel = request.getParameter("name_tel1") + request.getParameter("name_tel2") + request.getParameter("name_tel3");
+		phone = request.getParameter("name_phone1") + request.getParameter("name_phone2")
+				+ request.getParameter("name_phone3");
+		zipcode = request.getParameter("name_zipcode");
+		address = request.getParameter("name_address1") + request.getParameter("name_address2")
+				+ request.getParameter("name_address3");
+		job = request.getParameter("name_job");
+		pathway = request.getParameter("pathway");
+
 		System.out.println("name = " + name);
 		System.out.println("birthday = " + birthday);
 		System.out.println("id = " + id);
 		System.out.println("password = " + password);
 		System.out.println("email = " + tel);
+		System.out.println("emailagree = " + emailagree);
 		System.out.println("tel = " + tel);
 		System.out.println("phone = " + phone);
 		System.out.println("zipcode = " + zipcode);
