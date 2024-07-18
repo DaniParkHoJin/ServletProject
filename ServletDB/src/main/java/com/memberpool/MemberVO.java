@@ -1,4 +1,4 @@
-package com.member;
+package com.memberpool;
 
 import java.sql.Date;
 
@@ -62,12 +62,6 @@ public class MemberVO {
 
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
-	}
-
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", joinDate=" + joinDate
-				+ "]";
 	}
 	
 	

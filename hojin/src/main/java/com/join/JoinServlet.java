@@ -47,12 +47,13 @@ public class JoinServlet extends HttpServlet {
 		String email;
 		String emailagree;
 		String tel;
+		String name_telagree;
 		String phone;
 		String zipcode;
 		String address;
 		String job;
 		String pathway;
-
+		
 		name = request.getParameter("name_name");
 		birthday = request.getParameter("birthday");
 		id = request.getParameter("name_userid");
@@ -60,19 +61,28 @@ public class JoinServlet extends HttpServlet {
 		email = request.getParameter("name_email");
 		
 		if ("checked".equals(request.getParameter("emailagree"))) {
-			emailagree = "emailOk";
+			emailagree = "Y";
 		} else {
-			emailagree ="emailNo";
+			emailagree ="N";
 		}
 		
 		tel = request.getParameter("name_tel1") + request.getParameter("name_tel2") + request.getParameter("name_tel3");
 		phone = request.getParameter("name_phone1") + request.getParameter("name_phone2")
 				+ request.getParameter("name_phone3");
+		if ("N".equals(request.getParameter("name_telagree"))) {
+			name_telagree ="N";
+		} else {
+			name_telagree ="Y";
+		}
+		
 		zipcode = request.getParameter("name_zipcode");
 		address = request.getParameter("name_address1") + request.getParameter("name_address2")
 				+ request.getParameter("name_address3");
 		job = request.getParameter("name_job");
-		pathway = request.getParameter("pathway");
+
+		if ((pathway = request.getParameter("pathway")).equals(null) ) {
+			pathway = "가입경로모름";
+		}
 
 		System.out.println("name = " + name);
 		System.out.println("birthday = " + birthday);
