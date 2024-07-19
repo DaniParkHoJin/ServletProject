@@ -25,7 +25,7 @@
             허위로 작성된 가입정보일 경우 임의로 삭제처리될 수 있으니 주의해 주세요.
         </li>
     </ol>
-    <form name="regform" method="post" action="join" onsubmit="return checkForm(document.regform)">
+    <form name="regform" onsubmit="return checkForm(document.regform)">
         <table>
 
 
@@ -142,7 +142,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><div id="under_button"><input type="submit" value="회원가입" />&nbsp;<input type="reset" value="취소-이전"/></div></td>
+                <td colspan="2"><div id="under_button"><input type="button" value="회원가입" onclick="fn_sendMember()"/>&nbsp;<input type="reset" value="취소-이전"/><input type="hidden" name="command" value="addMember" /></div></td>
             </tr>
 
 

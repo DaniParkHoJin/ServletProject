@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class JoinServlet
  */
-@WebServlet("/join")
+@WebServlet("/join2")
 public class JoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,9 +45,9 @@ public class JoinServlet extends HttpServlet {
 		String id;
 		String password;
 		String email;
-		String emailagree;
+		String emailAgree;
 		String tel;
-		String name_telagree;
+		String telAgree;
 		String phone;
 		String zipcode;
 		String address;
@@ -61,18 +61,18 @@ public class JoinServlet extends HttpServlet {
 		email = request.getParameter("name_email");
 		
 		if ("checked".equals(request.getParameter("emailagree"))) {
-			emailagree = "Y";
+			emailAgree = "Y";
 		} else {
-			emailagree ="N";
+			emailAgree ="N";
 		}
 		
 		tel = request.getParameter("name_tel1") + request.getParameter("name_tel2") + request.getParameter("name_tel3");
 		phone = request.getParameter("name_phone1") + request.getParameter("name_phone2")
 				+ request.getParameter("name_phone3");
 		if ("N".equals(request.getParameter("name_telagree"))) {
-			name_telagree ="N";
+			telAgree ="N";
 		} else {
-			name_telagree ="Y";
+			telAgree ="Y";
 		}
 		
 		zipcode = request.getParameter("name_zipcode");
@@ -88,10 +88,11 @@ public class JoinServlet extends HttpServlet {
 		System.out.println("birthday = " + birthday);
 		System.out.println("id = " + id);
 		System.out.println("password = " + password);
-		System.out.println("email = " + tel);
-		System.out.println("emailagree = " + emailagree);
+		System.out.println("email = " + email);
+		System.out.println("emailAgree = " + emailAgree);
 		System.out.println("tel = " + tel);
 		System.out.println("phone = " + phone);
+		System.out.println("telAgree = " + telAgree);
 		System.out.println("zipcode = " + zipcode);
 		System.out.println("address = " + address);
 		System.out.println("job = " + job);

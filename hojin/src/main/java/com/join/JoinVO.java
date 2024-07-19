@@ -3,9 +3,9 @@ package com.join;
 import java.sql.Date;
 
 public class JoinVO {
-	private String no; // 일련번호 시퀀스
+	private int no; // 순서
 	private String name; // 이름
-	private Date birthday; // 생일
+	private String birthday; // 생일
 	private String id; // 아이디
 	private String password; // 비밀번호
 	private String email; // 이메일
@@ -25,7 +25,7 @@ public class JoinVO {
 	}
 
 
-	public JoinVO(String no, String name, Date birthday, String id, String password, String email, String emailagree,
+	public JoinVO(int no, String name, String birthday, String id, String password, String email, String emailagree,
 			String tel, String phone, String telagree, String zipcode, String address, String job, String pathway,
 			Date joinDate) {
 		super();
@@ -47,12 +47,12 @@ public class JoinVO {
 	}
 
 
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
 
 
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 
@@ -67,12 +67,12 @@ public class JoinVO {
 	}
 
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
@@ -207,4 +207,5 @@ public class JoinVO {
 	
 	
 	
+
 }

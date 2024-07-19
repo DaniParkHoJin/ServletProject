@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,11 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.common.Utils;
 
-@WebServlet("/join3")
-public class JoinServlet2 extends HttpServlet {
+@WebServlet("/join")
+public class JoinServlet3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public JoinServlet2() {
+	public JoinServlet3() {
 		super();
 	}
 
@@ -89,6 +90,12 @@ public class JoinServlet2 extends HttpServlet {
 				_pathway = "가입경로모름";
 			}
 
+			List membersList = dao.listMember();
+			request.setAttribute("membersList", membersList);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("viewmembers");
+			dispatcher.forward(request, response);
+		
+			
 			JoinVO vo = new JoinVO();
 			vo.setName(_name);
 			vo.setBirthday(_birthday);
@@ -104,6 +111,8 @@ public class JoinServlet2 extends HttpServlet {
 			vo.setJob(_job);
 			vo.setPathway(_pathway);
 			dao.addMember(vo);
+			
+			
 		} else if (command != null && command.equals("delMember")) {
 			
 			Utils.parameterCheck(request);
@@ -111,33 +120,7 @@ public class JoinServlet2 extends HttpServlet {
 			String id = request.getParameter("id");
 			dao.delMember(id);
 		}
-		List list = dao.listMember();
-		out.print("<html><body>");
-		out.print("<table border=1><tr align='center' bgcolor='lightgreen'>");
-		out.print(
-				"<td>이름</td><td>생년월일</td><td>아이디</td><td>비밀번호</td><td>이메일</td><td>이메일동의</td><td>전화번호</td><td>핸드폰</td><td>문자수신동의</td><td>우편번호</td><td>주소</td><td>직업</td><td>가입경로</td><td>삭제</td></tr>");
-
-		for (int i = 0; i < list.size(); i++) {
-			JoinVO joinVO = (JoinVO) list.get(i);
-			String name = joinVO.getName();
-			String birthday = joinVO.getBirthday();
-			String id = joinVO.getId();
-			String password = joinVO.getPassword();
-			String email = joinVO.getEmail();
-			String emailAgree = joinVO.getEmailagree();
-			String tel = joinVO.getTel();
-			String phone = joinVO.getPhone();
-			String telAgree = joinVO.getTelagree();
-			String zipcode = joinVO.getZipcode();
-			String address = joinVO.getAddress();
-			String job = joinVO.getJob();
-			String pathway = joinVO.getPathway();
-			Date joinDate = joinVO.getJoinDate();
-			out.print("<tr><td>" + name + "</td><td>" + birthday + "</td><td>"+ id + "</td><td>" + password + "</td><td>" + email + "</td><td>" + emailAgree + "</td><td>" + tel + "</td><td>" + phone + "</td><td>" + telAgree + "</td><td>" + zipcode + "</td><td>" + address + "</td><td>" + job + "</td><td>" + pathway + "</td><td>" + joinDate + "</td><td>"
-			+ "<a href='./join?command=delMember&id=" + id + "'>삭제</a></td></tr>");
-		}
-		out.print("</table></body></html>");
-		out.print("<a href='./join.html'>새 회원 등록하기</a");
+		
 	}
 
 	
