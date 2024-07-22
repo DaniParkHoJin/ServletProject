@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ID 선택자-2</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	function addHtml() {
+		// id 가   article 인   태그를   찾아서   html() 메서드의   인자   값을    태그에   설정한다. 
+		$("#article").html('안녕하세요' + '<br>');
+	}
+</script>
+</head>
+<body>
+	<div>
+		<p id="article"></p>
+	</div>
+	<input type="button" value="추가하기" onClick="addHtml()" />
+</body>
+</html>
