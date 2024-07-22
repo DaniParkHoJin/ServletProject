@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ajaxmember")
 public class AjaxMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doHandler(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doHandler(request, response);
 	}
 
@@ -28,6 +31,15 @@ public class AjaxMemberServlet extends HttpServlet {
 		String id = (String) request.getParameter("id"); 
 		System.out.println("id = " + id);
 		MemberDAO memberDAO = new MemberDAO();
+		
+		// ID 중복 여부를 체크한다.
+		boolean overlappendID = memberDAO.overlappendID(id);
+		
+		if(overlappendID == true) {
+			writer.print("not_usable");
+		} else {
+			writer.print("usable");
+		}
 	}
 
 }
