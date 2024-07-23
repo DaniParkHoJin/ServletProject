@@ -33,7 +33,6 @@ public class JoinDAO {
 	public List<JoinVO> listMember() {
 		List<JoinVO> list = new ArrayList<JoinVO>();
 
-		
 		try {
 			con = dataFactory.getConnection();
 			String query = "select * from member_hojin";
@@ -108,7 +107,6 @@ public class JoinDAO {
 			String job; // 직업
 			String pathway; // 가입경로
 
-
 			name = joinVO.getName();
 			birthday = joinVO.getBirthday();
 			id = joinVO.getId();
@@ -168,4 +166,26 @@ public class JoinDAO {
 		}
 	}
 
+	// ID 중복 검사
+	public boolean overlappedID(String id) {
+		String query;
+
+		boolean result = false;
+		try {
+			con = dataFactory.getConnection();
+			// decode() 함수를 이용해 ID 가 존재하면 true, 존재하지 않으면 false 를 문자열로 조회
+			query = "select decode(count(*),1,'true','false') as result " + " from member_hojin where id=?";
+			System.out.println("prepareStatememt: " + query);
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			result = Boolean.parseBoolean(rs.getString("result"));
+			pstmt.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

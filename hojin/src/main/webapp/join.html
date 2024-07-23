@@ -8,6 +8,7 @@
     <link href="./css/join.css" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="./javascript/join.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </head>
@@ -41,14 +42,14 @@
             <tr>
                 <th><label for="id_userid">회원ID</label></th>
                 <td><input type="text" name="name_userid" id="id_userid" required="required"/>&nbsp;
-                    <input type="button" value="ID 중복확인"/><br/>
+                    <input type="button" value="ID 중복확인" id= "check_id"/ onClick="fn_process()"><div id= "message"></div><br/>
                     회원ID는 가입후 변경이 불가능 합니다.<br/>
                     회원ID와 비밀번호는 영문자로 시작하는 4~18자의 영문, 숫자를 조합하셔서 공백없이 기입해주세요.
                 </td>
             </tr>
             <tr>
                 <th><label for="id_password">비밀번호</label></th>
-                <td><input type="password" name="name_password" id="id_password" required="required"/>&nbsp;&nbsp; 비밀번호 확인 <input
+                <td><input type="password" name="name_passwosrd" id="id_password" required="required"/>&nbsp;&nbsp; 비밀번호 확인 <input
                         type="password" name="name_repassword" id="id_repassword" required="required"/></td>
             </tr>
             <tr>
