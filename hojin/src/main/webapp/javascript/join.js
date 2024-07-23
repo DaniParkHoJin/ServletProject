@@ -94,7 +94,7 @@ function checkForm(regForm) {
 
 const fn_sendMember = () => {
 	let regform = document.regform;
-	
+
 	let id = regform.name_userid.value;
 	let name = regform.name_name.value;
 	let pwd = regform.name_password.value;
@@ -114,4 +114,40 @@ const fn_sendMember = () => {
 		regform.submit();
 	}
 
+}
+
+function fn_process() {
+	// 텍스트   박스에   입력한   ID 를   가져온다. 
+	var _id = $("#id_userid").val();
+	if (_id == '') {
+		alert("ID를 입력하세요");
+		return;
+	}
+	$.ajax({
+		type: "post",
+		async: true,
+		url: "http://localhost:8080/hojin/idcheck",
+		dataType: "text",
+		data: {
+			id: _id
+		},
+		success: function(data, textStatus) {
+			// alert(data);
+			// 서버에서   전송된   결과에    따라    메시지를   표시한다. 
+			if (data == 'usable') {
+				$('#message').text("사용할   수   있는   ID 입니다.");
+				// 사용할   수   있는   ID 면   버튼을   비활성화시킨다. 
+				$('#check_id').prop("disabled", true);
+			} else {
+				$('#message').text("사용할   수   없는   ID 입니다.");
+			}
+		},
+		error: function(data, textStatus) {
+			alert("에러가 발생했습니다.");
+			
+		},
+		complete: function(data, textStatus) {
+			//alert("작업을완료   했습니다");
+		}
+	}); //end ajax 
 }

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.common.Utils;
 
-@WebServlet("/join")
+@WebServlet("/join3")
 public class JoinServlet3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
